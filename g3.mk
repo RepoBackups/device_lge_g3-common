@@ -206,8 +206,8 @@ PRODUCT_PACKAGES += \
     Torch
 
 #Quick Remote
-    $(LOCAL_PATH)/device/lge/g3-common/LGQRemote.apk:system/priv-app/
-    $(LOCAL_PATH)/device/lge/g3-common/QuicksetSDK.apk:system/priv-app/
+    $(LOCAL_PATH)/device/lge/g3-common/LGQRemote.apk:system/priv-app/LGQRemote/
+    $(LOCAL_PATH)/device/lge/g3-common/QuicksetSDK.apk:system/priv-app/QuicksetSDK/
 
 # USB
 PRODUCT_PACKAGES += \

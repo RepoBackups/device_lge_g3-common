@@ -21,7 +21,6 @@ ifneq ($(filter g3 d850 d851 d852 d855 ls990 vs985, $(TARGET_DEVICE)),)
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
 include $(CLEAR_VARS)
-
 define vfatfilename
 $(foreach f,$(1),$(shell echo $(f) | \
     awk 'BEGIN { FS="."; } { printf("%s.%s", substr($$1,1,8), $$2); }'))

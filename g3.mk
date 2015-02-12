@@ -154,7 +154,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
     $(LOCAL_PATH)/configs/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
     $(LOCAL_PATH)/configs/nfcee_access.xml:system/etc/nfcee_access.xml
-
+    
 # Offmode Charging
 PRODUCT_PACKAGES += \
     charger_res_g3 \
@@ -204,6 +204,10 @@ PRODUCT_PACKAGES += \
 # Torch
 PRODUCT_PACKAGES += \
     Torch
+
+#Quick Remote
+    $(LOCAL_PATH)/device/lge/g3-common/LGQRemote.apk:system/priv-app/
+    $(LOCAL_PATH)/device/lge/g3-common/QuicksetSDK.apk:system/priv-app/
 
 # USB
 PRODUCT_PACKAGES += \

@@ -140,11 +140,11 @@ on early-boot
 
 on boot
     # bring CPUs online
-    write /sys/module/msm_thermal/core_control/enabled 0
+    # write /sys/module/msm_thermal/core_control/enabled 0
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu2/online 1
     write /sys/devices/system/cpu/cpu3/online 1
-    write /sys/module/msm_thermal/core_control/enabled 1
+    # write /sys/module/msm_thermal/core_control/enabled 1
 
     insmod /system/lib/modules/adsprpc.ko
 
@@ -773,9 +773,6 @@ service lowi-server /system/bin/lowi-server
     group gps net_admin wifi inet
     disabled
 
-service mpdecision /system/bin/mpdecision --avg_comp
-    user root
-    disabled
 
 service mtsd /system/bin/mtsd
     class late_start
@@ -949,10 +946,6 @@ service svelteoff /system/bin/logwrapper /system/bin/sh /system/etc/init.lge.sve
 	disabled
 	oneshot
 
-service thermal-engine /system/bin/thermal-engine
-   class main
-   user root
-   group root
 
 service time_daemon /system/bin/time_daemon
    class late_start
@@ -1342,7 +1335,7 @@ on property:sys.perf.profile=0
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor conservative
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor conservative
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor msm-adreno-tz
-    start mpdecision
+    
 
 on property:sys.perf.profile=1
     write /sys/class/devfreq/qcom,cpubw.41/governor "msm_cpufreq"
@@ -1365,10 +1358,10 @@ on property:sys.perf.profile=1
     write /sys/devices/system/cpu/cpufreq/interactive/up_threshold_any_cpu_freq 1190400
 
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor msm-adreno-tz
-    start mpdecision
+    
 
 on property:sys.perf.profile=2
-    stop mpdecision
+    
     write /sys/devices/system/cpu/cpu0/online 1
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu2/online 1

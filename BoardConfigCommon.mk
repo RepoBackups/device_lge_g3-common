@@ -46,8 +46,8 @@ BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x0008000 --ramdisk_offset 0x2000000
 TARGET_KERNEL_SOURCE := kernel/lge/g3
-KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-CANDY-linux-gnueabi/bin
-KERNEL_TOOLCHAIN_PREFIX := arm-CANDY-linux-gnueabi-
+KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/Linaro-4.10/bin
+KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
 
 # Rom Optimization
 USE_GRAPHITE := true

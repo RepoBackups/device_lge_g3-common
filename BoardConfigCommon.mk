@@ -48,6 +48,14 @@ TARGET_KERNEL_SOURCE := kernel/lge/g3
 KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-candy-linux-gnueabi/bin
 KERNEL_TOOLCHAIN_PREFIX := arm-CANDY-linux-gnueabi-
 
+# Rom Optimization
+USE_GRAPHITE := true
+USE_FSTRICT_FLAGS := true
+FSTRICT_ALIASING_WARNING_LEVEL := 3
+USE_BINARY_FLAGS := true
+USE_EXTRA_CLANG_FLAGS := true
+USE_LTO := true
+
 # Audio
 BOARD_USES_ALSA_AUDIO := true
 AUDIO_FEATURE_ENABLED_HWDEP_CAL := true

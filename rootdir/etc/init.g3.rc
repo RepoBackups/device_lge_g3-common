@@ -140,11 +140,9 @@ on early-boot
 
 on boot
     # bring CPUs online
-    write /sys/module/msm_thermal/core_control/enabled 0
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu2/online 1
     write /sys/devices/system/cpu/cpu3/online 1
-    write /sys/module/msm_thermal/core_control/enabled 1
 
     insmod /system/lib/modules/adsprpc.ko
 
@@ -763,10 +761,6 @@ service lowi-server /system/bin/lowi-server
     group gps net_admin wifi inet
     disabled
 
-service mpdecision /system/bin/mpdecision --avg_comp
-    user root
-    disabled
-
 service mtsd /system/bin/mtsd
     class late_start
     oneshot
@@ -923,14 +917,6 @@ service svelteoff /system/bin/logwrapper /system/bin/sh /system/etc/init.lge.sve
 	group system
 	disabled
 	oneshot
-
-service thermal-engine /system/bin/thermal-engine -c /system/etc/thermal-engine-8974.conf
-   class main
-   user root
-   group root
-   socket thermal-send-client stream 0666 system system
-   socket thermal-recv-client stream 0660 system system
-   socket thermal-recv-passive-client stream 0666 system system
 
 service time_daemon /system/bin/time_daemon
    class late_start
@@ -1294,10 +1280,6 @@ on property:service.bootanim.exit=1
     chmod 664 /sys/devices/system/cpu/cpu2/online
     chmod 664 /sys/devices/system/cpu/cpu3/online
 
-    write /sys/module/cpu_boost/parameters/sync_threshold "1728000"
-    write /sys/module/cpu_boost/parameters/input_boost_freq "1497600"
-    write /sys/module/cpu_boost/parameters/input_boost_ms "40"
-
 on property:init.svc.bootanim=running
     # Disable LG screen sharpening
     write /sys/devices/virtual/graphics/fb0/sharpening 0
@@ -1312,7 +1294,6 @@ on property:init.svc.bootanim=stopped
 
 # CM Performance Profiles
 on property:sys.perf.profile=0
-    stop mpdecision
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu2/online 1
     write /sys/devices/system/cpu/cpu3/online 1
@@ -1322,10 +1303,8 @@ on property:sys.perf.profile=0
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor conservative
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor conservative
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor msm-adreno-tz
-    start mpdecision
 
 on property:sys.perf.profile=1
-    stop mpdecision
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu2/online 1
     write /sys/devices/system/cpu/cpu3/online 1
@@ -1349,10 +1328,8 @@ on property:sys.perf.profile=1
     write /sys/devices/system/cpu/cpufreq/interactive/up_threshold_any_cpu_freq 1190400
 
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor msm-adreno-tz
-    start mpdecision
 
 on property:sys.perf.profile=2
-    stop mpdecision
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu2/online 1
     write /sys/devices/system/cpu/cpu3/online 1

@@ -292,15 +292,15 @@
     <string name="config_wifi_tcp_buffers" translatable="false">4096,221184,3461120,4096,221184,3461120</string>
 
    
-    <!-- Ambient Display : Dream of Notifications
+    <!-- Ambient Display : Dream of Notifications -->
     <string name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>
     <bool name="config_dozeAfterScreenOff">true</bool>
     <bool name="config_powerDecoupleAutoSuspendModeFromDisplay">false</bool>
     <bool name="config_powerDecoupleInteractiveModeFromDisplay">true</bool>
-    <bool name="config_dreamsSupported">true</bool> --> 
+    <bool name="config_dreamsSupported">true</bool> 
     
-    <!-- Doze: force using accelerometer as pick up sensor
-    <bool name="config_dozeUseAccelerometer">true</bool> -->
+    <!-- Doze: force using accelerometer as pick up sensor -->
+    <bool name="config_dozeUseAccelerometer">true</bool>
 
     <!-- Configure mobile tcp buffer sizes in the form:
          rat-name:rmem_min,rmem_def,rmem_max,wmem_min,wmem_def,wmem_max

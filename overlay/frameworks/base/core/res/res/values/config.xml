@@ -298,6 +298,9 @@
     <bool name="config_powerDecoupleAutoSuspendModeFromDisplay">false</bool>
     <bool name="config_powerDecoupleInteractiveModeFromDisplay">true</bool>
     <bool name="config_dreamsSupported">true</bool> 
+    <bool name="config_dozeAfterScreenOff">true</bool>
+    <bool name="config_dozeUseAccelerometer">true</bool>
+    <integer name="config_screenBrightnessDoze">5</integer>
     
     <!-- Doze: force using accelerometer as pick up sensor -->
     <bool name="config_dozeUseAccelerometer">true</bool>
